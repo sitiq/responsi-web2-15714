@@ -16,7 +16,7 @@ class EmployeesController extends Controller
     public function index()
     {
         $da = Employees::all();
-        return view('')->with('', $ta);
+        return view('employees.index')->with('employees', $da);
     }
 
     /**
@@ -27,7 +27,7 @@ class EmployeesController extends Controller
     public function create()
     {
         $da = Jobs::all();
-        return view('')->with('', $ta);
+        return view('employees.create')->with('jobs', $da);
     }
 
     /**
@@ -77,7 +77,7 @@ class EmployeesController extends Controller
     {
         $jobs = Jobs::all();
         $data = Employees::where('id_employees', '=', $id)->firstOrFail();
-        return view('')->with('employees', $data)->with('jobs', $jobs);
+        return view('employees.edit')->with('employees', $data)->with('jobs', $jobs);
     }
 
     /**

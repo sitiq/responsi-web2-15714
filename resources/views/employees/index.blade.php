@@ -1,7 +1,7 @@
-@extends('')
+@extends('base')
 @section('employees','active')
-@section('')
-<a href="{{route('')}}" class="btn btn-primary">Tambah Data</a>
+@section('content')
+<a href="/employees/create" class="btn btn-primary">Tambah Data</a>
 <br/><br/>
 <table class="table table-bordered table-hover">
     <thead>
@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($ as $data)
+        @foreach($employees as $data)
         <tr>
             <th scope="row">{{$data->id_employees}}</th>
             <td>{{$data->jobs->name}}</td>
@@ -26,12 +26,13 @@
             <td>{{$data->address}}</td>
             <td>
                 <div class="btn-group">
-                    <a href="{{route('',$data->id_employees)}}" class="btn btn-success">Edit</a>
-                    <form action="{{ route('', $data->id_employees)}}" method="post">
+                    <a href="/employees/edit/{{$data->id_employees}}" class="btn btn-success">Edit</a>
+                    <a href="/employees/delete/{{$data->id_employees}}" class="btn btn-danger">Hapus</a>
+<!--                     <form action="{{ route('', $data->id_employees)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Hapus</button>
-                    </form>
+                    </form> -->
                 </div>
             </td>
         </tr>

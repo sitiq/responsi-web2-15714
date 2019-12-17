@@ -27,6 +27,20 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+$factory->define(Jobs::class, function (Faker $faker) {
+    return [
+        'name' => $faker->jobTitle,
+    ];
+});
+$factory->define(Employees::class, function (Faker $faker) {
+    return [
+        'id_jobs' => $faker->numberBetween(1,10),
+        'name' => $faker->name,
+        'email' => $faker->email->unique(),
+        'phone' => $faker->phoneNumber, 
+        'address' => $faker->address,
+    ];
+});
 
 //  factory jobs
 //  kolom 'name' => faker->jobTitle

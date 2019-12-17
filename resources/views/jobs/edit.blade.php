@@ -1,9 +1,8 @@
-@extends('')
+@extends('base')
 @section('jobs','active')
-@section('')
-<form action="{{route('',$jobs->id_jobs)}}" method="POST">
+@section('content')
+<form action="{{route('jobsUpdate')}}" method="POST">
   @csrf
-  @method('PUT')
   <div class="form-group">
     <label>Nama Kategori</label>
     <input type="text" name="nama" value="{{$jobs->nama}}" class="form-control" placeholder="...">

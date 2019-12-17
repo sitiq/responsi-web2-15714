@@ -1,9 +1,8 @@
-@extends('')
+@extends('base')
 @section('employees','active')
-@section('')
-<form action="{{route('',$employees->id_employees)}}" method="POST">
+@section('content')
+<form action="{{route('employeesUpdate')}}" method="POST">
   @csrf
-  @method('PUT')
   <div class="form-group">
     <label>Jobs</label>
     <select name="job" class="form-control">
