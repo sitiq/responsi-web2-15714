@@ -13,8 +13,8 @@ class CreateJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Jobs', function (Blueprint $table) {
-            $table->bigIncrement('id_jobs');
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->bigIncrements('id_jobs');
             $table->string('name'); 
             $table->timestamps();
         });
